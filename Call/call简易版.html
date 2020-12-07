@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    name = "Window"
+    var Obj1 = {
+      name: 'Obj1',
+      fn(x) {
+        console.log('i am fn of Obj1; 但是现在被' + this.name + '调用啦');
+        console.log('实参x为:', x);
+        console.log('arguments为:', arguments);
+        console.log('当前this指向:', this);
+        return 99
+      }
+    }
+
+    var Obj2 = {
+      name: 'Obj2',
+    }
+
+    Function.prototype.MyCall = function (obj) {
+      obj = obj || window
+      obj.CopyFn = this
+      let result = obj.CopyFn(...[...arguments].slice(1))
+      delete obj.CopyFn
+      return result
+    }
+
+    Obj1.fn.MyCall(Obj2, 1, 111111)
+    console.log(Obj2);
+  </script>
+</body>
+
+</html>
