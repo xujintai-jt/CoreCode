@@ -1,0 +1,44 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-08 20:30:59
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-08 21:14:22
+ * @Description: file content
+ * @FilePath: \CoreCode\vue源码\数据代理\vue_数据代理.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    {{name}}
+  </div>
+
+
+  <script src='https://cdn.jsdelivr.net/npm/vue@2.6.12'></script>
+  <script>
+    const data = {
+      name: 'app'
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: data,
+      created() {
+        this.name = 'proxy_name'
+      }
+    })
+
+    console.log(data.name);
+    console.log(vm);
+  </script>
+</body>
+
+</html>
