@@ -1,3 +1,11 @@
+/*
+ * @Author: xujintai
+ * @Date: 2020-12-07 20:39:19
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-08 13:35:01
+ * @Description: file content
+ * @FilePath: \CoreCode\DeepCopy\DeepCopy.js
+ */
 let obj = {
   a: {
     aa: 'aa'

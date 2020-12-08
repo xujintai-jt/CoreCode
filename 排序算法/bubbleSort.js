@@ -1,3 +1,11 @@
+/*
+ * @Author: xujintai
+ * @Date: 2020-12-08 12:27:42
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-08 13:34:35
+ * @Description: file content
+ * @FilePath: \CoreCode\排序算法\BubbleSort.js
+ */
 function BubbleSort(array) {
   if (array.length <= 1) {
     return array

@@ -1,3 +1,11 @@
+/*
+ * @Author: xujintai
+ * @Date: 2020-12-08 12:24:41
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-08 13:34:38
+ * @Description: file content
+ * @FilePath: \CoreCode\排序算法\quickSort.js
+ */
 function quickSort(array) {
   //1.结束递归的条件
   if (array.length <= 1) {

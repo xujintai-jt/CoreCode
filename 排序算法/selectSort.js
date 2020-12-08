@@ -1,3 +1,11 @@
+/*
+ * @Author: xujintai
+ * @Date: 2020-12-08 12:36:40
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-08 13:34:42
+ * @Description: file content
+ * @FilePath: \CoreCode\排序算法\selectSort.js
+ */
 function selectSort(array) {
   if (array.length <= 1) {
     return array

@@ -1,3 +1,11 @@
+/*
+ * @Author: xujintai
+ * @Date: 2020-12-07 20:35:20
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-08 13:34:22
+ * @Description: file content
+ * @FilePath: \CoreCode\Call\call.js
+ */
 name = "Window"
 var Obj1 = {
   name: 'Obj1',
