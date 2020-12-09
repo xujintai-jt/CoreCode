@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-07 20:38:53
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-09 21:55:43
+ * @LastEditTime: 2020-12-09 22:11:44
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise.js
  */
@@ -74,12 +74,19 @@
         });
       } else if (self.status === RESOLVED) {
         setTimeout(() => {
-          //1.如果回调函数抛出异常，return失败状态、状态值为error的promise
-          //2.如果回调函数返回结果不是Promise，return成功状态、状态值为return结果的promise（无return则状态值为undefined）
-          //3.如果回调函数返回一个promise，则return状态和状态值为回调函数返回的promise的状态和状态值
           try {
-            onResolved(self.data)
+            const result = onResolved(self.data)
+            if (result instanceof Promise) {
+              //3.如果回调函数返回一个promise，则return状态和状态值为回调函数返回的promise的状态和状态值
+              result.then(value => reslove(value),
+                reason => reject(reason)
+              )
+            } else {
+              //2.如果回调函数返回结果不是Promise，return成功状态、状态值为return结果的promise（无return则状态值为undefined）
+              resolve(result)
+            }
           } catch (error) {
+            //1.如果回调函数抛出异常，return失败状态、状态值为error的promise
             reject(error)
           }
         })
