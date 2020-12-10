@@ -1,0 +1,47 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-10 20:31:08
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-10 21:05:26
+ * @Description: file content
+ * @FilePath: \CoreCode\数组\数组扁平化.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组扁平化</title>
+</head>
+
+<body>
+  <script>
+    //数组扁平化，多维数组转化为一位数组
+    const arr = [1, [2, [3, [4, [5, 6]]]], 7]
+    // 1.flat方法 返回一个新数组
+    let newArr1 = arr.flat(Infinity)
+    console.log(newArr1);
+
+    // 2.遍历循环
+    const newArr2 = []
+
+    function singleArray(arr) {
+      arr.forEach(item => {
+        if (item instanceof Array) {
+          singleArray(item)
+        } else {
+          newArr2.push(item)
+        }
+      })
+
+      return newArr2
+    }
+
+    var res = singleArray(arr)
+
+    console.log(res);
+  </script>
+</body>
+
+</html>
