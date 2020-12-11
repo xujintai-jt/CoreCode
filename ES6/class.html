@@ -1,0 +1,43 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-11 21:05:54
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-11 21:30:20
+ * @Description: file content
+ * @FilePath: \CoreCode\ES6\class.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function T() {
+    //   return 'a'
+    // }
+
+    // var t = new T()     t是T返回的实例对象
+    // console.log(t instanceof T); //true
+
+
+
+    class Test {
+      constructor() {
+        return {}
+      }
+
+      test() {};
+
+    }
+    const test1 = new Test()
+    console.log(test1 instanceof Test); //false
+  </script>
+
+</body>
+
+</html>
