@@ -1,0 +1,51 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-12 21:40:06
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-13 19:50:03
+ * @Description: file content
+ * @FilePath: \CoreCode\vue源码\test\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>FirstName:{{FirstName}}</div>
+    <div>FullName:{{FullName}}</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script>
+    function data() {
+      return {
+        FirstName: 'JinTai',
+        LastName: 'Xu'
+      }
+    }
+
+    const vm = new Vue({
+      el: '#app',
+      data: data(),
+      computed: {
+        FullName() {
+          console.log(1);
+          setTimeout(() => {
+            console.log(1);
+          }, 1000)
+          return this.LastName + ' ' + this.FirstName
+        }
+      }
+    })
+    console.log(data().FirstName);
+  </script>
+
+</body>
+
+</html>
