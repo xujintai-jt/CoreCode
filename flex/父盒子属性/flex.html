@@ -1,0 +1,55 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-14 09:33:24
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-14 09:42:45
+ * @Description: 文件说明
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            display: flex;
+            /* flex-wrap: wrap; */
+            height: 50px;
+            width: 100px;
+            background-color: blue;
+        }
+
+        .son1 {
+            height: 50px;
+            width: 50px;
+            background-color: pink;
+        }
+
+        .son2 {
+            /* 不承担缩小 */
+            height: 50px;
+            width: 50px;
+            background-color: yellow;
+        }
+
+        .son3 {
+            flex-shrink: 2;
+            /* 承担两份缩小 */
+            height: 50px;
+            width: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='father'>
+        <span class="son1 all">3</span>
+        <span class="son2 all">2</span>
+        <span class="son3 all">1</span>
+    </div>
+</body>
+
+</html>
