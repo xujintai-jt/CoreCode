@@ -1,0 +1,67 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-16 21:28:42
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-16 21:42:00
+ * @Description: file content
+ * @FilePath: \CoreCode\事件\addEventListener.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      height: 50px;
+      width: 50px;
+      line-height: 50px;
+      background-color: pink;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      let div = document.querySelector('div')
+      // 1. 使用addEventListener给元素添加多个事件， 不会被覆盖。(事件前没有on)
+      div.addEventListener('click', function () {
+        console.log(1);
+      }, false)
+
+      div.addEventListener('click', function () {
+        console.log(2);
+      }, false)
+
+      div.addEventListener('click', function () {
+        console.log(3);
+      }, false)
+      // 打印1, 2, 3
+
+      //2.使用对象.事件=函数形式(div.onclick=fn式)绑定响应函数会覆盖事件。(事件前有on)
+      div.onclick = function () {
+        console.log(4);
+      }
+      div.onclick = function () {
+        console.log(5);
+      }
+      //打印5
+    }
+  </script>
+
+</head>
+
+<body>
+  <div>点击</div>
+
+</body>
+
+</html>
