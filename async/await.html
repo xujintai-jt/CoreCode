@@ -1,0 +1,53 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-20 18:49:02
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-20 19:17:27
+ * @Description: file content
+ * @FilePath: \CoreCode\async\await.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // //await只能得到成功的结果，await右边失败的promsie必须使用try、catch
+
+    // //1.未使用try catch处理失败的promsie
+    // async function f3() {
+    //   var z = await Promise.reject(30);
+    //   //停止执行
+    //   console.log(z);
+    // }
+    // f3();
+
+    // //2.使用try catch处理失败的promsie
+    // async function f4() {
+    //   try {
+    //     var z = await Promise.reject(30);
+    //   } catch (z) {
+    //     console.log(z); // 40
+    //   }
+    // }
+    // f4();
+
+
+    async function f4() {
+      var z = await setTimeout(() => {
+        console.log(99);
+      }, 2000)
+      console.log(z);
+      console.log(1);
+    }
+    f4();
+  </script>
+
+</body>
+
+</html>

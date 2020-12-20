@@ -1,0 +1,60 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-20 17:42:25
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-20 18:48:49
+ * @Description: file content
+ * @FilePath: \CoreCode\async\async.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //async 修饰的函数返回结果是一个promise实例对象
+    //1.无返回值
+    async function fn1() {}
+    let result1 = fn1()
+    console.log(result1); // Promise {<fulfilled>: undefined}
+
+    //2.1 返回非promise值
+    async function fn2() {
+      return 'hello'
+    }
+    let result2 = fn2()
+    console.log(result2); // Promise {<fulfilled>: "hello"}
+
+
+    //2.2.1 返回成功promise
+    async function fn3() {
+      return Promise.resolve('success')
+    }
+    let result3 = fn3()
+    console.log(result3); // Promise {<fulfilled>: "success"}
+
+
+    //2.2.2 返回失败promise
+    async function fn4() {
+      return Promise.reject('failed')
+    }
+    let result4 = fn4()
+    console.log(result4); // Promise {<rejected>: "failed"}
+
+    //3.抛出异常
+    async function fn5() {
+      // throw new Error('error')
+      throw 'error'
+    }
+    let result5 = fn5()
+    console.log(result5); // Promise {<rejected>: "error"}
+  </script>
+
+</body>
+
+</html>
