@@ -1,0 +1,62 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-22 12:11:05
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-22 14:03:26
+ * @Description: file content
+ * @FilePath: \CoreCode\rem\rem适配布局.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @media screen and (max-width: 550px) {
+      html {
+        font-size: 10px;
+      }
+
+      body {
+        background-color: pink;
+
+      }
+    }
+
+    @media screen and (min-width:600px) and (max-width: 999px) {
+      html {
+        font-size: 25px;
+      }
+
+      body {
+        background-color: greenyellow;
+
+      }
+    }
+
+    #father {
+      height: 20rem;
+      width: 20rem;
+      background-color: blue;
+    }
+
+    #son {
+      height: 10rem;
+      width: 10rem;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="father">
+    <div id="son">
+      11
+    </div>
+  </div>
+
+</body>
+
+</html>

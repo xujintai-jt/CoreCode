@@ -1,0 +1,50 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-21 21:19:49
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-22 12:10:42
+ * @Description: file content
+ * @FilePath: \CoreCode\rem\em适配布局.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html {
+      font-size: 20px;
+    }
+
+    /* * {
+      font-size: 16px;
+    } */
+
+    #grandFather {
+      font-size: 16px;
+    }
+
+    /* #father {
+      font-size: 12px;
+    } */
+
+    #son {
+      height: 10em;
+      width: 10em;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <!--em测试:当父元素未设置font-size时，会去寻找body或者html的font-size。其中body的优先级高于html -->
+  <div id="grandFather"></div>
+  <div id="father">
+    <div id="son"></div>
+  </div>
+  </div>
+</body>
+
+</html>
