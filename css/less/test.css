@@ -1,0 +1,9 @@
+html {
+  background-color: pink;
+  font-size: 20px;
+}
+div {
+  height: 4rem;
+  width: 4rem;
+  background-color: blue;
+}
