@@ -1,11 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .container {
   margin: 0 auto;
-  height: 200px;
+  height: 40px;
+  text-align: center;
   background-color: pink;
+}
+.container .father {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 @media (max-width: 768px) {
   .container {
     width: 100%;
+    height: 4rem;
+  }
+  .container .son {
+    width: 33.33%;
   }
 }
 @media (min-width: 768px) {
