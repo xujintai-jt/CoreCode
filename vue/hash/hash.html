@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-21 13:17:29
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-21 13:43:28
+ * @LastEditTime: 2020-12-25 20:53:44
  * @Description: file content
  * @FilePath: \CoreCode\vue\hash\hash.html
 -->
@@ -16,8 +16,17 @@
 </head>
 
 <body>
+  <button>点击改变url</button>
   <script>
-    console.log(history);
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', () => {
+      location.hash = "/user"
+    })
+
+    onhashchange = function (e) {
+      console.log('oldUrl ', e.oldURL);
+      console.log('newUrl ', e.newURL);
+    }
   </script>
 </body>
 
