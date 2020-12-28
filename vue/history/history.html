@@ -2,7 +2,46 @@
  * @Author: xujintai
  * @Date: 2020-12-21 13:17:50
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-21 13:17:50
+ * @LastEditTime: 2020-12-26 20:20:58
  * @Description: file content
- * @FilePath: \CoreCode\vue\hash\history.html
+ * @FilePath: \CoreCode\vue\history\history.html
 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点击切换url history</button>
+  <div>点击切换url hash</div>
+
+  <script>
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', () => {
+      history.pushState(null, null, 'user')
+    })
+    //浏览器前进后退时触发，即使url不变
+    window.onpopstate = (e) => {
+      console.log(e);
+    }
+
+    let div = document.querySelector('div')
+    div.addEventListener('click', () => {
+      location.hash = 'home'
+    })
+    onhashchange = (e) => {
+      console.log(e);
+    }
+
+
+    window.onload = () => {
+      sessionStorage.setItem('history', 'sessionStorage')
+    }
+  </script>
+</body>
+
+</html>

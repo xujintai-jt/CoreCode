@@ -1,0 +1,118 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-28 08:36:50
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-28 09:04:35
+ * @Description: file content
+ * @FilePath: \CoreCode\Promise\封装异步函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1.
+    // let p1 = new Promise((resolve, reject) => {
+    //   let fn = function () {
+    //     return '春眠不觉晓,'
+    //   }
+    //   let res1 = fn()
+    //   resolve(res1)
+    // })
+
+    // let p2 = p1.then(value => {
+    //   return new Promise((resolve, reject) => {
+    //     let fn = function () {
+    //       return '处处闻啼鸟。'
+    //     }
+    //     let res = value + fn()
+    //     resolve(res)
+    //   })
+    // })
+
+    // let p3 = p2.then(value => {
+    //   return new Promise((resolve, reject) => {
+    //     let fn = function () {
+    //       return '夜来风雨声，'
+    //     }
+    //     let res = value + fn()
+    //     resolve(res)
+    //     console.log(value);
+    //   })
+    // })
+
+
+    // let p4 = p3.then(value => {
+    //   return new Promise((resolve, reject) => {
+    //     let fn = function () {
+    //       return '花落知多少'
+    //     }
+    //     let res = value + fn()
+    //     resolve(res)
+    //     console.log(res);
+    //   })
+    // })
+
+    //2.链式调用
+    // let p1 = new Promise((resolve, reject) => {
+    //   let fn = function () {
+    //     return '春眠不觉晓,'
+    //   }
+    //   let res1 = fn()
+    //   resolve(res1)
+    // })
+
+    // p1.then(value => {
+    //   return new Promise((resolve, reject) => {
+    //     let fn = function () {
+    //       return '处处闻啼鸟。'
+    //     }
+    //     let res = value + fn()
+    //     resolve(res)
+    //   })
+    // }).then(value => {
+    //   return new Promise((resolve, reject) => {
+    //     let fn = function () {
+    //       return '夜来风雨声，'
+    //     }
+    //     let res = value + fn()
+    //     resolve(res)
+    //   })
+    // }).then(value => {
+    //   return new Promise((resolve, reject) => {
+    //     let fn = function () {
+    //       return '花落知多少。'
+    //     }
+    //     let res = value + fn()
+    //     resolve(res)
+    //   })
+    // }).then(value => {
+    //   console.log(value);
+    // })
+
+
+    let p1 = new Promise((resolve, reject) => {
+      // reject(1)
+      resolve(1)
+    })
+
+    let p2 = p1.then(value => {
+      console.log('resolve...');
+    }, reason => {
+      console.log('reject...');
+    })
+
+    setTimeout(() => {
+      console.log(p2);
+    })
+  </script>
+
+</body>
+
+</html>
