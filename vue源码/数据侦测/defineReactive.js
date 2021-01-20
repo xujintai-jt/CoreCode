@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-20 12:55:56
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-20 18:17:58
+ * @LastEditTime: 2021-01-20 22:28:39
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\数据侦测\defineReactive.js
  */
@@ -12,7 +12,7 @@
     val=target[key]
    }
    
-  //  observe(target)
+  //  observe(key)
 
   Object.defineProperty(target, key, {
     get() {
