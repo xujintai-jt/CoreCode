@@ -2,12 +2,12 @@
  * @Author: xujintai
  * @Date: 2021-01-20 12:55:56
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-20 16:21:20
+ * @LastEditTime: 2021-01-20 16:42:49
  * @Description: file content
- * @FilePath: \Vue3\test\defineReactive.js
+ * @FilePath: \CoreCode\vue源码\数据侦测\defineReactive.js
  */
 
-export default function defineReactive(target, key, val) {
+ function defineReactive(target, key, val) {
   if (arguments.length === 2) {
     val=target[key]
   }
