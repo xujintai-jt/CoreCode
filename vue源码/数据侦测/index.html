@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-20 16:31:32
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-20 16:43:29
+ * @LastEditTime: 2021-01-20 18:10:02
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\数据侦测\index.html
 -->
@@ -17,6 +17,8 @@
 
 <body>
   <script src="./defineReactive.js"></script>
+  <script src="./Observer.js"></script>
+  <script src="./observe.js"></script>
   <script>
     const obj = {
       name: 'xjt',
@@ -25,8 +27,12 @@
       }
     }
 
-    defineReactive(obj, 'name')
+
+    observe(obj)
+    obj.name = 'zzz'
     console.log(obj.name);
+
+    // obj.obj2.name2 = 'wwf'
   </script>
 </body>
 
