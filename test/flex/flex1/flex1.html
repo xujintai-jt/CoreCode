@@ -1,0 +1,41 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-15 18:47:00
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-15 19:01:04
+ * @Description: file content
+ * @FilePath: \test\flex\flex1\flex1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      display: flex;
+      height: 50px;
+      background-color: pink;
+    }
+
+    .son {
+      /* flex: 1 */
+      flex: 2 1 1px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="father">
+    <span class="son"></span>
+    <span class="son"></span>
+    <span class="son"></span>
+  </div>
+
+</body>
+
+</html>

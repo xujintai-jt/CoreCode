@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //实现函数柯里化就是把接收多个参数的函数变成接收一个参数的函数，并且返回接收余下参数 返回结果的一种应用
+  // 思路：判断传递的参数是否达到了执行函数的fn个数
+  // 没有达到的话，继续返回新的函数，并且返回curry函数传递的剩余参数
+  let curry = ( fn, ...args)=>{
+    arg.length<fn.length ? (...arguments)=>curry(fn,...args,...arguments)
+        :fn(...args)
+  }
+
+
+  let curry1 =(fn,...args)=>{
+    args.length<fn.length ? (...arguments)=>curry1(fn,...args,...arguments)
+        :fn(...args)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  let currying = (fn,...args)=>{
+    args.length<fn.length ? (...arguments)=>currying(fn,...args,...arguments)
+        :fn(...args)
+  }
+
+
+
+
+  let curry1 = (fn,...args)=>{
+    args.length<fn.length ?
+        (...arguments)=>currying(fn,...args,...arguments):fn(...args)
+  }
+
+
+
+
+
+
+
+
+
+
+  let currying = (fn,...args)=>{
+    args.length<fn.length ? (...arguments)=>
+        currying(fn,...args,...arguments) : fn(...args)
+  }
+</script>
+</body>
+</html>

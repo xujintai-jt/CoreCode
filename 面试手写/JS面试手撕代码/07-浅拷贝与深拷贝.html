@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    浅拷贝只复制一层对象的属性，并不包括对象里面的为引用类型的数据。
+    所以就会出现改变浅拷贝得到的 obj3 中的引用类型时，
+    会使原始数据得到改变。
+    深拷贝：将 B 对象拷贝到 A 对象中，包括 B 里面的子对象，
+    浅拷贝：将 B 对象拷贝到 A 对象中，但不包括 B 里面的子对象
+
+    浅复制只复制一层对象的属性，而深复制则递归复制了所有层级。
+
+    <script>
+
+  //浅拷贝
+  function shallowcopy(obj){
+    //只拷贝对象
+    if(typeof obj !== 'object') return;
+    //根据obj的类型判断新建数组还是对象
+    let newobj = obj instanceof Array ? [] : {} ;
+    //遍历obj并且判断是obj的属性才进行拷贝
+    for(let key in obj ){
+      if(obj.hasOwnProperty(key)){
+        newobj[key] = obj[key]
+      }
+    }
+    return newobj ;
+  }
+
+
+  //深拷贝 ：所解决的问题就是共用内存地址所导致的数据错乱问题
+
+  // 乞丐版
+  function deepclone1(obj) {
+    //可以拷贝数组和对象，不能拷贝函数
+    return JSON.parse(JSON.stringify(obj))
+  }
+  //递归版
+  function deepcopy(obj) {
+    //如果输入为基本类型，则直接返回
+    if(typeof obj!=='object') return obj;
+    let newobj = obj instanceof Array ? []:{}
+    for(let key in obj){
+      if(obj.hasOwnProperty(key)){
+        newobj[key] = typeof obj[key] === 'object' ? deepcopy(obj[key]) :obj[key]
+      }
+    }
+    return newobj
+  }
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //浅拷贝
+  function shallowcopy(obj) {
+    if(typeof obj !=='object') return ;
+    let newobj =  obj instanceof Array ? []:{}
+    for(let key in obj){
+      if(obj.hasOwnProperty(key)){
+        newobj[key] = obj[key]
+      }
+    }
+    return newobj
+  }
+
+  //深拷贝
+  function deepcopy(obj) {
+    if(typeof obj !=='object') return;
+    let newobj = obj instanceof Array ? []:{};
+    for(let key in obj){
+      if(obj.hasOwnProperty(key)){
+        newobj[key] = typeof obj[key] ==='object'? deepcopy(obj[key]):obj[key]
+      }
+    }
+  }
+</script>
+  </body>
+</html>

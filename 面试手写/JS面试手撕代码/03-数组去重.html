@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+  //数组去重
+  const arr = [1,1,'1',17,true,'true',false,false,"true",'a',{},{}]
+  //方法一：利用set
+  const res1 = Array.from(new Set(arr))
+  console.log(res1);
+  console.log(arr);
+
+  //方法二：两层循环删除第二个相同的
+  for(let i=0;i<arr.length;i++){
+    for(let j=i+1;j<arr.length;j++){
+      if(arr[i]===arr[j]){
+        arr.splice(j,1)
+        j--
+        arr.length--
+      }
+    }
+  }
+  console.log(arr)
+
+  //方法三：indexof
+  const newarr = []
+  for (let i=0;i<arr.length;i++){
+    if(newarr.indexOf(arr[i]===-1)){
+      newarr.push(ar[i])
+    }
+  }
+  //方法四：includes
+  const res6= []
+  for(let i=0;i<arr.length;i++){
+    if(!res6.includes(arr[i])){
+      res6.push(arr[i])
+    }
+  }
+  //方法五：filter
+  const res7 = arr=>{
+    return arr.filter((item,index)=>{
+      return arr.indexOf(item)===index
+    })
+  }
+</script>
+  </body>
+</html>

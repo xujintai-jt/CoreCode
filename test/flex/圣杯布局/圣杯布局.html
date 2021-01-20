@@ -1,0 +1,81 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-15 19:03:47
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-15 19:29:47
+ * @Description: file content
+ * @FilePath: \test\flex\圣杯布局\圣杯布局.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      min-height: 500px;
+    }
+
+
+
+    .father {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+
+      /* border-radius: 20%; */
+      background-color: pink;
+    }
+
+    header,
+    footer {
+      /* border-radius: 5%; */
+      height: 80px;
+      background-color: gray;
+    }
+
+    .body1 {
+      display: flex;
+      flex-grow: 1;
+      background-color: blue;
+    }
+
+    .body1 .left {
+      flex: 1;
+      background-color: blue;
+    }
+
+    .body1 .center {
+      flex: 1;
+      background-color: white;
+    }
+
+    .body1 .right {
+      flex: 1;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    <header> header </header>
+    <div class="body1">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+    </div>
+    <footer> footer</footer>
+  </div>
+
+</body>
+
+</html>

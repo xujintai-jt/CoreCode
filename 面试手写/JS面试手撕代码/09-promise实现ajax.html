@@ -1,0 +1,51 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-11-24 18:48:23
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-13 16:40:48
+ * @Description: file content
+ * @FilePath: \JS面试手撕代码\09-promise实现ajax.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+    const getJSON = function (url) {
+      const promise = new Promise(function (resolve, reject) {
+        const handler = function () {
+          if (this.readyState !== 4) {
+            return;
+          }
+          if (this.status === 200) {
+            resolve(this.response);
+          } else {
+            reject(new Error(this.statusText));
+          }
+        };
+        const client = new XMLHttpRequest();
+        client.open("GET", url);
+        client.onreadystatechange = handler;
+        client.responseType = "json";
+        client.setRequestHeader("Accept", "application/json");
+        client.send();
+
+      });
+
+      return promise;
+    };
+
+    getJSON("/posts.json").then(function (json) {
+      console.log('Contents: ' + json);
+    }, function (error) {
+      console.error('出错了', error);
+    });
+  </script>
+</body>
+
+</html>

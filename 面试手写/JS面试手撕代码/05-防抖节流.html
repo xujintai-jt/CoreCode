@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+  //防抖debounce
+    function debounce(fn,time) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(()=>{
+          fn.apply(this,arguments)
+        },time)
+      }
+    }
+
+  //节流 throttle
+  function throttle(fn,time) {
+    let flag = true
+    return function () {
+      if(!flag) return
+      flag = false
+      setTimeout(()=>{
+        fn.apply(this,arguments)
+        flag = true
+      },time)
+    }
+  }
+  
+  
+//时间戳版本
+  function throttle(fn ,delay) {
+    let pre = 0
+    return function () {
+      let now = Date.now()
+      if(now-pre>delay){
+        fn.apply(this,arguments)
+        pre = now
+      }
+    }
+  }
+  
+  
+  function mynew(fn) {
+    let obj = {}
+    if(fn.prototype!==null){
+      Object.setPrototypeOf(obj,fn.prototype)
+    }
+    let res = fn.apply(obj,arguments)
+    return typeof res ==='object'? res:obj
+  }
+
+
+  //浅克隆
+  function shallowcopy(obj) {
+    if(typeof obj !== 'object') return
+    let newobj = Array.isArray(obj) ? []:{}
+    for(let key in obj){
+      if(obj.hasOwnProperty(key)){
+        newobj[key] = obj[key]
+      }
+    }
+    return newobj
+  }
+
+  //深克隆
+  function deepclone(obj) {
+    if(typeof obj !=='object') return obj
+    let newobj = obj instanceof Array ? []:{}
+    for(let key in obj){
+      if(obj.hasOwnProperty(key)){
+        newobj[key] = typeof obj[key] ==='object'? deepclone(obj[key]):obj[key]
+      }
+    }
+    return newobj
+  }
+</script>
+  </body>
+</html>

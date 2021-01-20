@@ -1,0 +1,55 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-11-16 13:25:51
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-10 16:43:50
+ * @Description: 文件说明
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script src="./sort/quick.js"></script> -->
+    <!-- <script src="./promise/Promise.js"> </script> -->
+    <script src="./Promise_stable.js"> </script>
+
+    <script>
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(1)
+            }, 100)
+        })
+
+        let p2 = p.then(value => {
+            console.log('onResolved()1', value);
+            return Promise.reject('reject');
+        }, reason => {
+            console.log('onRejected()1', reason);
+        }).then(value => {
+            console.log('onResolved()2', value);
+        }, reason => {
+            console.log('onRejected()2', reason);
+            // throw new Error('Error')
+            return new Promise((resolve, reject) => {
+                reject('error')
+            })
+        }).catch((error) => {
+            console.log('catch', error);
+        })
+
+
+
+        setTimeout(() => {
+            console.log(p2);
+        }, 2000)
+    </script>
+
+</body>
+
+</html>

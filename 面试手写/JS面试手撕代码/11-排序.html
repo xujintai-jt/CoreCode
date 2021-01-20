@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function swap(arr,i,j) {
+    let temp = arr[i]
+    arr[i]=arr[j]
+    arr[j]=temp
+  }
+  //冒泡排序
+  function bubblesort(arr) {
+    if(arr==null || arr.length <=0) return []
+    for(let i =arr.length-1 ;i>=0;i--){
+      for(let j=0;j<i;j++){
+        if(arr[j]>arr[j+1]){
+          swap(arr,j,j+1)
+        }
+      }
+    }
+    return arr
+  }
+
+  console.log(bubblesort([1, 5, 2, 7, 3, 8, 4]));
+
+
+  //选择排序：遍历数组，把最小值放在头部
+  function selectsort(arr) {
+    if(arr==null || arr.length==0) return []
+    for(let i=0;i<arr.length;i++){
+      let min = i
+      for(let j=i+1;j<arr.length; j++){
+        min= arr[min]>arr[j] ? j:min
+      }
+      swap(arr,i,min)
+    }
+    return  arr
+  }
+  console.log(selectsort([1, 5, 2, 7, 3, 8, 4]));
+
+  //插入排序：将一个新的数，和前面的比较，只要当前数小于前一个则和前一个交换位置，否则终止
+  function insertsort(arr) {
+    if(arr==null ||arr.length==0) return []
+    for(let i=1;i<arr.length;i++){
+      for(let j=i-1;j>=0 &&arr[j]>arr[j+1];j--){
+        swap(arr,j,j+1)
+      }
+    }
+    return arr
+  }
+  console.log(insertsort([1, 5, 2, 7, 3, 8, 4]));
+
+
+  //快速排序
+  function quicksort(arr) {
+    if(arr.length<2) return arr
+    const pivot =arr[0] //基准值
+    const pivotarr = []  //一样大的值放中间
+    const lowarr =[]  //小的放左边
+    const hightarr = [] //大的放右边
+    arr.forEach(current=>{
+      if(current===pivot){
+        pivotarr.push(current)
+      }else if(current>pivot){
+        hightarr.push(current)
+      }else {
+        lowarr.push(current)
+      }
+    })
+    return  [...quicksort(lowarr),...pivotarr,...quicksort(hightarr)]
+
+  }
+  quicksort([1, 5, 2, 7, 3, 8, 4])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //快速排序
+  function quickSort(arr) {
+    if(arr.length<2){
+      return arr
+    }
+    const pivot = arr[0]
+    const pivotarr=[]
+    const leftarr= []
+    const rightarr= []
+    arr.forEach(current=>{
+      if(current==pivot){
+        pivotarr.push(current)
+      }else  if(current>pivot){
+        rightarr.push(current)
+      }else{
+        leftarr.push(current)
+      }
+    })
+    return [...quicksort(leftarr),...pivotarr,...quicksort(rightarr)]
+  }
+
+  console.log(quickSort([4, 3, 7, 9, 2, 6, 22, 12, 10]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function quick(arr) {
+    if(arr.length<2) return arr
+    let privot = arr[0]
+    let privotarr =[]
+    let left =[]
+    let right =[]
+    arr.forEach(current=>{
+      if(current===privot){
+        privotarr.push(current)
+      }else if(current>privot){
+        right.push(current)
+      }else{
+        left.push(current)
+      }
+    })
+    return [...quick(left),...privotarr,...quick(right)]
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-09 11:15:37
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-14 16:32:36
+ * @Description: 文件说明
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{name}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        const data = {
+            name: '许金泰',
+            age: 22
+        }
+        const vm = new Vue({
+            el: '#app',
+            data,
+        })
+    </script>
+    <script>
+        Object.keys(data).forEach(item => {
+            // const dep = new Dep
+            let value = data[item]
+            Object.defineProperty(data, item, {
+                get() {
+                    // dep.subs.push
+                    return value
+                },
+                set(newValue) {
+                    value = newValue
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

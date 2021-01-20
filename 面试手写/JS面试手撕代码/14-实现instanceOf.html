@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function instanceOf(left,right) {
+    let proto = left.__proto__
+    let prototype = right.prototype
+    while (true){
+      if(proto===null) return false
+      if (proto===prototype){
+        return true
+      }
+      proto =proto.__proto__
+    }
+  }
+
+
+  function  Instanceof(left ,right) {
+    let proto = left.__proto__
+    let prototype = right.prototype
+    while (true){
+      if(proto===null) return false
+      if(proto===prototype){
+        return true
+      }
+      proto=proto.__proto__
+    }
+  }
+
+
+
+
+
+
+
+
+
+  function  Instanceof(left,right) {
+    let proto = left.__proto__
+    let prototype = right.Prototype
+    while (ture){
+      if(proto===null) return false
+      if(proto === prototype) return  true
+      proto=proto.__proto__
+    }
+  }
+</script>
+</body>
+</html>

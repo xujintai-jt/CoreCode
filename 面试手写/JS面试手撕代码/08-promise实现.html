@@ -1,0 +1,81 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-11-24 18:48:23
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-10 19:59:55
+ * @Description: file content
+ * @FilePath: \JS面试手撕代码\08-promise实现.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+    /*
+promise/A+规范：
+三种状态：pending | fulfilled | rejected
+当处于pending状态时，可以转移到fulfilled或rejected状态
+当处于fulfilled或rejected时，状态不可变
+必须有一个then异步执行方法，接收两个参数且必须返回一个promise  onfulfilled用来接收成功的值，onrejected 用来接收promise失败的原因
+promise1 =promise.then(onfulfilled,onrejected)
+* */
+
+    // promise用法
+    let promise1 = new Promise((resolve, reject) => {
+      if (操作成功) {
+        resolve(value)
+      } else {
+        reject(error)
+      }
+    })
+    promise1.then(value => 'success', value => 'fail')
+
+
+    //promise实现
+    function myPromise(excutor) {
+      let self = this
+      self.status = 'pending'
+      self.value = undefined
+      self.reason = undefined
+
+      function resolve(value) {
+        if (self.status === 'pending') {
+          self.value = value
+          self.status = 'fulfilled'
+        }
+      }
+
+      function reject(reason) {
+        if (self.status === 'pending') {
+          self.reason = reason
+          self.status = 'rejected'
+        }
+      }
+      try {
+        excutor(reject, resolve)
+      } catch (error) {
+        reject(error)
+      }
+    }
+
+    myPromise.prototype.then = function (onFulfilled, onRejected) {
+      let self = this
+      switch (self.status) {
+        case "rejected":
+          onRejected(self.reason)
+          break
+        case "resolved":
+          onFulfilled(self.value)
+          break
+        default:
+      }
+    }
+  </script>
+</body>
+
+</html>

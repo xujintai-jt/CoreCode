@@ -1,0 +1,94 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-14 14:40:52
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-14 15:12:16
+ * @Description: 文件说明
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            position: relative;
+            height: 500px;
+        }
+
+        .wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            bottom: 0;
+            right: 0;
+            /* margin: 0 auto; */
+            transform: translate(-50%, -50%);
+            height: 150px;
+            width: 150px;
+            background-color: #e0dfcc;
+        }
+
+        .father1 {
+            background-color: pink;
+
+            .item {
+                background-color: red;
+            }
+
+        }
+
+        .father2 {
+            background-color: green;
+        }
+
+        .father3 {
+            background-color: blue;
+            justify-content: space-around;
+        }
+
+        .father {
+            display: flex;
+            height: 33%;
+            width: 100%;
+        }
+
+        .item {
+            width: 33%;
+            height: 100%;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="father father1">
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+
+
+        <div class="father father2">
+            <span class="item"></span>
+        </div>
+
+        <div class="father father3">
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js"></script>
+
+</html>

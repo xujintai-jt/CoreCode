@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+  /*
+  步骤：
+  1：获取第一个参数（如果第一个参数为null或undefined，this指向window，构建对象
+  2：将对应函数传入该对象中
+  3：获取参数并执行相应函数
+  4：删除该对象中函数，消除副作用
+  5：返回结果
+  * */
+
+
+
+  // 1：apply实现
+/*   Function.prototype.myapply = function (context,...args) {
+    //默认不传参数就给window
+    context = context || window
+    args = args ? args : []
+    //给context新增一个独一无二的属性避免覆盖原有属性
+    const key = Symbol()
+    context[key] = this
+    //通过隐式绑定的方式调用函数
+    const  res = context[key](...args)
+    //删除添加的属性
+    delete context[key]
+    //返回函数调用的返回值
+    return res
+  } */
+
+  //:call实现
+  Function.prototype.mycall = function (context) {
+    // 如果第一个参数为null或undefined，context 值为window
+    context = context || window
+    // 将this赋予context的fn属性
+    context.fn = this
+    //将arguments转为数组，从索引1开始 截取传入参数，0为一个对象
+    console.log(...arguments);
+    let arg = [...arguments].slice(1)
+    //将arg数组的元素作为fn1方法的参数执行
+    let result = context.fn(...arg)
+    //删除添加的属性
+    delete context.fn
+    //返回结果
+    return  result
+  }
+  function add(c, d){
+    return this.a + this.b + c + d;
+  }
+  var obj = {a:1, b:2};
+  console.log(add.mycall(obj, 3, 4)); // 10
+
+  //apply实现
+  Function.prototype.myapply = function (context) {
+    context = context || window
+    context.fn = this
+    console.log(arguments[1])
+    let arg = arguments[1] || []
+    let res = context.fn(...arg)
+    delete context.fn
+    return res
+  }
+  function add(c, d){
+    return this.a + this.b + c + d;
+  }
+  var obj = {a:1, b:2};
+  console.log(add.myapply(obj, [5, 6])); // 14
+
+
+
+  //bind实现
+    Function.prototype.mybind = function (context) {
+      //this为调用mybind的函数，将this赋值给——this
+      let _this = this
+      //将arguments 转化为数组，从索引1开始截取
+      let arg = [...arguments].slice(1)
+      console.log(...arguments);
+      //返回函数
+      return function () {
+        return _this.apply(context,arg.concat(...arguments))
+        console.log(arg.concat(...arguments));
+      }
+    }
+  var obj = {
+    siteName: "zhangpeiyue.com"
+  }
+  function printSiteName() {
+    console.log(this.siteName);
+  }
+  var site = printSiteName.mybind(obj);
+  // 返回的是一个函数
+  console.log(site) // function () { … }
+  // 通过mybind使其this发生了变化
+  site();// zhangpeiyue.com
+</script>
+  </body>
+</html>

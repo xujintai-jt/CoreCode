@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //数组扁平化，多维数组转化为一位数组
+  const arr =[1,[2,[3,[4,[5,6]]]],7]
+
+  //方法一 flat
+  const res = arr.flat(Infinity)
+  console.log(res);
+
+  //方法二：函数递归
+  const res1 =[]  //保存结果的数组不能放在函数里面，不然每次递归都会初始化数组
+  const fn =arr=>{
+
+    for(let i=0 ;i<arr.length;i++){
+      if(Array.isArray(arr[i])){
+        fn(arr[i])
+      }else {
+        res1.push(arr[i])
+      }
+    }
+    return res1
+  }
+  console.log(fn(arr));
+
+  // 方法三：使用reduce
+  const flatten = arr=>{
+    return arr.reduce((pre,cur)=>{
+      return pre.concat(Array.isArray(cur) ? flatten(cur) :cur)
+    },[])
+  }
+  console.log(flatten(arr));
+
+  //方法四：利用正则表达式
+  const res3= JSON.stringify(arr).replace(/\[|\]/g,'').split(',')
+  res4 =[]
+  res3.forEach(i=> res4.push(Number(i)))
+  console.log(res4);
+  //方法五：正则加强版
+  const res5 = JSON.parse('['+JSON.stringify(arr).replace(/\[|\]/g,'')+']')
+  console.log(res5);
+</script>
+</body>
+</html>

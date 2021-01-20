@@ -1,0 +1,92 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-14 09:33:24
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-14 11:45:46
+ * @Description: 文件说明
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .big {
+            position: relative;
+            top: 0;
+            height: 500px;
+            /* background-color: blue; */
+        }
+
+
+        .father {
+            margin: auto;
+            display: flex;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            justify-content: center;
+            align-items: start;
+            /* flex-direction: column; */
+            flex-wrap: wrap;
+            height: 100px;
+            width: 100px;
+            background-color: black;
+            border-radius: 20%;
+            background-color: #e0dfcc;
+        }
+
+        .son1 {
+            height: 35px;
+            width: 35px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .son2 {
+            align-self: auto;
+            height: 35px;
+            width: 35px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .son3 {
+            align-self: auto;
+            height: 35px;
+            width: 35px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .son4 {
+            align-self: auto;
+            height: 35px;
+            width: 35px;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <div class='father'>
+            <span class="son1"></span>
+            <span class="son2"></span>
+            <span class="son3"></span>
+            <span class="son4"></span>
+        </div>
+    </div>
+</body>
+
+</html>

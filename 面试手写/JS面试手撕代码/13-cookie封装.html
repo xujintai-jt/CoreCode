@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  window.addEventListener('load',function () {
+    // document.cookie = 'age=33'
+    function addcookie(key,value,day) {
+      let date = new Date()
+      date.setDate(date.getDate())
+      document.cookie = 'key=value;expires=""'
+    }
+  })
+</script>
+</body>
+</html>
