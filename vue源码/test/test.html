@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-20 22:15:57
+ * @LastEditTime: 2021-01-21 13:08:01
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -48,11 +48,17 @@
 
 
   <script>
-    // var a = null
-    // var a = {}
-    var a = ''
-    const c = a.z || null
-    console.log(c);
+    // console.log('Number(null):', Number(null));
+    // //Number(null): 0
+    // console.log('Number(undefined):', Number(undefined));
+    // //Number(undefined): NaN
+
+    // console.log('String(null):', String(null), typeof String(null));
+    // //String(null): null string
+    // console.log('String(undefined):', String(undefined), typeof String(undefined));
+    // //String(undefined): undefined string
+    console.log(1 + [5, 6]);
+    console.log(Number(0n));
   </script>
 
 </body>
