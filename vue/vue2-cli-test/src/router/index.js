@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-22 16:06:21
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-22 16:14:45
+ * @LastEditTime: 2021-01-22 20:01:51
  * @Description: file content
  * @FilePath: \CoreCode\vue\vue2-cli-test\src\router\index.js
  */
@@ -22,6 +22,10 @@ const routes = [
     path: '/List',
     name: 'List',
     component: () => import(/* webpackChunkName: "about" */ '../components/List')
+  },  {
+    path: '/slot-test',
+    name: 'slot-test',
+    component: () => import(/* webpackChunkName: "about" */ '../components/slot-test')
   }
 ]
 
