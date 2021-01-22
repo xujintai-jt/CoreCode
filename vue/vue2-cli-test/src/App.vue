@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-22 16:06:21
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-22 16:13:27
+ * @LastEditTime: 2021-01-22 22:39:54
  * @Description: file content
  * @FilePath: \CoreCode\vue\vue2-cli-test\src\App.vue
 -->
@@ -11,6 +11,17 @@
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return { name: "App根组件" };
+  },
+  created() {
+    console.log(this.name);
+  },
+};
+</script>
 
 <style lang="scss">
 #app {

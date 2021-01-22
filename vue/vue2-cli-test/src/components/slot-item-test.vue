@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-22 20:04:24
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-22 22:17:48
+ * @LastEditTime: 2021-01-22 22:54:30
  * @Description: file content
  * @FilePath: \CoreCode\vue\vue2-cli-test\src\components\slot-item-test.vue
 -->
@@ -23,6 +23,9 @@ export default {
       item: "item-item",
       msg: "hahaha",
     };
+  },
+  created() {
+    // console.log("slot-item-test组件", this.$root);
   },
 };
 </script>
