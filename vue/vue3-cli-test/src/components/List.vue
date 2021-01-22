@@ -2,9 +2,9 @@
  * @Author: xujintai
  * @Date: 2021-01-22 15:34:10
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-22 15:58:27
+ * @LastEditTime: 2021-01-22 17:07:29
  * @Description: file content
- * @FilePath: \CoreCode\vue\vue-cli-test\src\components\List.vue
+ * @FilePath: \CoreCode\vue\vue3-cli-test\src\components\List.vue
 -->
 <template>
   <div>
@@ -14,10 +14,12 @@
     <div v-for="item in students" :key="item.id">
       <span>{{item.name}}</span>
       <button @click="changeName(item)">changeName</button>
+      <h3>propsId</h3>
+      <div>{{item.id}}</div>
     </div>
 
     <h1>------------------------------ListItem------------------------------------</h1>
-    <list-item v-for="item in students" :key="item.id" :student="item" />
+    <list-item v-for="item in students" :key="item.id" :student="item" :id="item.id" />
   </div>
 </template>
 
