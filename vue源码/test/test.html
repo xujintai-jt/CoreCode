@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-23 22:55:58
+ * @LastEditTime: 2021-01-23 23:19:53
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -84,7 +84,24 @@
     // const fn1 = new Fn()
     // console.log('fn1.height', fn1.height);
 
-    console.log(Number.isNaN(NaN));
+    //es6中的箭头函数没有arguments对象，但可以使用rest参数代替
+    const fn = (a = 1, ...rest) => {
+      console.log('fn-a:', a);
+      //rest参数是数组
+      console.log('fn-rest:', rest);
+    }
+    fn(2, 3, 4)
+    console.log('fn.length', fn.length);
+
+    function fn2(a = 1) {
+      console.log('fn2-a:', a);
+      //arguments是类数组对象
+      console.log('fn2-arguments:', arguments);
+      console.log('fn2-arguments:', arguments instanceof Array);
+    }
+    fn2(2, 3, 4)
+    console.log('fn2.length', fn2.length);
+    console.log('fn2.toString', fn2.toString());
   </script>
 
 </body>
