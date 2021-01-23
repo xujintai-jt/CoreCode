@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-23 22:37:25
+ * @LastEditTime: 2021-01-23 22:55:58
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -72,15 +72,19 @@
     console.log(obj.toString());
 
 
-    function Fn() {
-      console.log('i am Fn');
-    }
-    console.log(Fn.height);
-    Fn.height = 10
-    Fn.prototype.height = 100
-    console.log('Fn.height', Fn.height);
-    const fn1 = new Fn()
-    console.log('fn1.height', fn1.height);
+    // function Fn() {
+    //   console.log('i am Fn');
+    // }
+    // console.log(Fn.height);
+    // 添加Fn静态属性height
+    // Fn.height = 10
+    // 添加Fn原型属性height
+    // Fn.prototype.height = 100
+    // console.log('Fn.height', Fn.height);
+    // const fn1 = new Fn()
+    // console.log('fn1.height', fn1.height);
+
+    console.log(Number.isNaN(NaN));
   </script>
 
 </body>
