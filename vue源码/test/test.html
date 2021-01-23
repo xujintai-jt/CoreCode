@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-23 22:15:23
+ * @LastEditTime: 2021-01-23 22:37:25
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -70,6 +70,17 @@
     // console.log(Number(str));
     console.log(obj.valueOf());
     console.log(obj.toString());
+
+
+    function Fn() {
+      console.log('i am Fn');
+    }
+    console.log(Fn.height);
+    Fn.height = 10
+    Fn.prototype.height = 100
+    console.log('Fn.height', Fn.height);
+    const fn1 = new Fn()
+    console.log('fn1.height', fn1.height);
   </script>
 
 </body>
