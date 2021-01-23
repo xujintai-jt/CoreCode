@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-21 19:26:50
+ * @LastEditTime: 2021-01-23 22:15:23
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -58,10 +58,18 @@
     // console.log('String(undefined):', String(undefined), typeof String(undefined));
     // //String(undefined): undefined string
 
-    const arr = [1, 2, 4, 3, 5]
-    const arr2 = arr.splice(0, 1)
-    console.log('arr:', arr);
-    console.log('arr2:', arr2);
+    // const arr = [1, 2, 4, 3, 5]
+    // const arr2 = arr.splice(0, 1)
+    // console.log('arr:', arr);
+    // console.log('arr2:', arr2);
+
+    const str = "NN"
+    const obj = {
+      a: '1'
+    }
+    // console.log(Number(str));
+    console.log(obj.valueOf());
+    console.log(obj.toString());
   </script>
 
 </body>
