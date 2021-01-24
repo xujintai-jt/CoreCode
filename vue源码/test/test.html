@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-24 17:19:51
+ * @LastEditTime: 2021-01-24 17:39:20
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -113,6 +113,21 @@
     // let str = 'aaa'
     // const obj = {}
     // const key2 = obj ?? {};
+
+    //es6 set结构
+    let set = new Set();
+    let a = {}
+    set.add(a);
+    console.log(set.size); // 1
+    set.add(a);
+    console.log(set.size); // 1
+
+    let set2 = new Set();
+    set2.add({});
+    console.log(set2.size); // 1
+    set2.add({});
+    console.log(set2.size); // 2
+    //由于两个空对象不相等，所以它们被视为两个值。
   </script>
 
 </body>
