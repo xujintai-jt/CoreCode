@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-24 16:59:45
+ * @LastEditTime: 2021-01-24 17:19:51
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -63,13 +63,13 @@
     // console.log('arr:', arr);
     // console.log('arr2:', arr2);
 
-    const str = "NN"
-    const obj = {
-      a: '1'
-    }
-    // console.log(Number(str));
-    console.log(obj.valueOf());
-    console.log(obj.toString());
+    // const str = "NN"
+    // const obj = {
+    //   a: '1'
+    // }
+    // // console.log(Number(str));
+    // console.log(obj.valueOf());
+    // console.log(obj.toString());
 
 
     // function Fn() {
@@ -104,9 +104,15 @@
     // console.log('fn2.toString', fn2.toString());
 
     //es6使用扩展运算符是否可以深克隆数组(可以)
-    const arr = [1, 2, 3, 4, 5]
-    const arr2 = [...arr]
-    console.log(arr2 === arr);
+    // const arr = [1, 2, 3, 4, 5]
+    // const arr2 = [...arr]
+    // console.log(arr2 === arr);
+
+    //es2020逻辑运算符 ?.和??
+    //(当多个逻辑运算符一起使用时优先级问题(逻辑运算符必须使用括号来区分优先级，否则报错))
+    // let str = 'aaa'
+    // const obj = {}
+    // const key2 = obj ?? {};
   </script>
 
 </body>
