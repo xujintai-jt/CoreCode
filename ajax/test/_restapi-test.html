@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-26 11:18:31
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-26 11:49:46
+ * @LastEditTime: 2021-01-26 12:04:28
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_restapi-test.html
 -->
@@ -16,21 +16,28 @@
 </head>
 
 <body>
-  <button>get</button>
-  <button>post</button>
+  <button onclick="testGet()">get</button>
+  <button onclick="testPost()">post</button>
   <button>put</button>
   <button>delete</button>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
+    const instance = axios.create({
+      baseURL: 'http://localhost:3000/',
+      timeout: 1000,
+    });
+
     // get请求：query
-    axios.get('http://localhost:3000/posts/1').then(Response => {
-      console.log(Response);
-    }).catch((error) => {
-      console.log(error);
-    })
+    // function testGet() {
+    //   instance.get('/posts/1').then(Response => {
+    //     console.log(Response);
+    //   }).catch((error) => {
+    //     console.log(error);
+    //   })
+    // }
 
     // get请求： params
-    // axios.get('http://localhost:3000/posts', {
+    // axios.get('/posts', {
     //   params: {
     //     id: 1
     //   }
@@ -39,6 +46,19 @@
     // }).catch((error) => {
     //   console.log(error);
     // })
+
+
+    // post请求
+    function testPost() {
+      instance.post('/posts', {
+        author: 'XuJinTai',
+        title: 'coding...'
+      }).then(Response => {
+        console.log(Response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
   </script>
 </body>
 
