@@ -16,19 +16,19 @@
       "author": "typicode3"
     },
     {
-      "firstName": "JinTai",
-      "lastName": "Xu",
+      "title": "河东狮吼",
+      "author": "张柏芝",
       "id": 4
-    },
-    {
-      "firstName": "JinTai",
-      "lastName": "Xu",
-      "id": 5
     },
     {
       "author": "XuJinTai",
       "title": "coding...",
       "id": 6
+    },
+    {
+      "author": "XuJinTai",
+      "title": "coding...",
+      "id": 7
     }
   ],
   "comments": [
