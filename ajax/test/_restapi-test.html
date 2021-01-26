@@ -1,0 +1,45 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-01-26 11:18:31
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-26 11:49:46
+ * @Description: file content
+ * @FilePath: \CoreCode\ajax\test\_restapi-test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>get</button>
+  <button>post</button>
+  <button>put</button>
+  <button>delete</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // get请求：query
+    axios.get('http://localhost:3000/posts/1').then(Response => {
+      console.log(Response);
+    }).catch((error) => {
+      console.log(error);
+    })
+
+    // get请求： params
+    // axios.get('http://localhost:3000/posts', {
+    //   params: {
+    //     id: 1
+    //   }
+    // }).then(Response => {
+    //   console.log(Response);
+    // }).catch((error) => {
+    //   console.log(error);
+    // })
+  </script>
+</body>
+
+</html>
