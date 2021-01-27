@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-24 17:39:20
+ * @LastEditTime: 2021-01-27 18:26:28
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -54,9 +54,9 @@
     // //Number(undefined): NaN
 
     // console.log('String(null):', String(null), typeof String(null));
-    // //String(null): null string
+    // //String(null): 'null' string
     // console.log('String(undefined):', String(undefined), typeof String(undefined));
-    // //String(undefined): undefined string
+    // //String(undefined): 'undefined' string
 
     // const arr = [1, 2, 4, 3, 5]
     // const arr2 = arr.splice(0, 1)
@@ -115,19 +115,51 @@
     // const key2 = obj ?? {};
 
     //es6 set结构
-    let set = new Set();
-    let a = {}
-    set.add(a);
-    console.log(set.size); // 1
-    set.add(a);
-    console.log(set.size); // 1
+    // let set = new Set();
+    // let a = {}
+    // set.add(a);
+    // console.log(set.size); // 1
+    // set.add(a);
+    // console.log(set.size); // 1
 
-    let set2 = new Set();
-    set2.add({});
-    console.log(set2.size); // 1
-    set2.add({});
-    console.log(set2.size); // 2
+    // let set2 = new Set();
+    // set2.add({});
+    // console.log(set2.size); // 1
+    // set2.add({});
+    // console.log(set2.size); // 2
     //由于两个空对象不相等，所以它们被视为两个值。
+
+    //定义函数:拼接params到url(使用for in循环或者Object.keys方法)
+    function url(url, params) {
+      let str = url + '?'
+      // 1.使用for in遍历params对象
+      // for (var key in params) {
+      //   if (str[str.length - 1] !== '?') {
+      //     str += '&' + key + '=' +
+      //       params[key]
+      //   } else {
+      //     str += key + '=' +
+      //       params[key]
+      //   }
+      // }
+
+      // 2.使用Object.keys()方法间接遍历params对象
+      Object.keys(params).forEach((item, index) => {
+        if (index === 0) {
+          str += item + '=' + params[item]
+        } else {
+          str += '&' + item + '=' + params[item]
+        }
+      })
+
+      return str
+    }
+
+    console.log(url('http://123.com', {
+      name: 'xjt',
+      age: 22,
+      weight: '50KG'
+    }));
   </script>
 
 </body>
