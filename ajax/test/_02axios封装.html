@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-27 15:37:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-27 17:53:43
+ * @LastEditTime: 2021-01-27 18:45:30
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_02axios封装.html
 -->
@@ -28,6 +28,14 @@
         // 1. 发起异步ajax请求
         const xmlhttp = new XMLHttpRequest()
         //打开连接
+        //拼接params到url
+        Object.keys(params).forEach((item, index) => {
+          if (index === 0) {
+            url += `?${item}=${params[item]}`
+          } else {
+            url += `&${item}=${params[item]}`
+          }
+        })
         xmlhttp.open(method, url, true);
         //发送请求(判断请求方式)
         if (method === 'GET') {
@@ -45,21 +53,21 @@
     }
 
     //axios(config)
-    axios({
-      method: 'POST',
-      url: 'http://localhost:3000/posts',
-      data: {
-        firstName: 'Fred',
-        lastName: 'Flintstone'
-      }
-    });
-
     // axios({
+    //   method: 'POST',
     //   url: 'http://localhost:3000/posts',
-    //   params: {
-    //     id: 1
+    //   data: {
+    //     firstName: 'Fred',
+    //     lastName: 'Flintstone'
     //   }
     // });
+
+    axios({
+      url: 'http://localhost:3000/posts',
+      params: {
+        id: 2
+      }
+    });
   </script>
 
 </body>
