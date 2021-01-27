@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-27 18:26:28
+ * @LastEditTime: 2021-01-27 18:37:46
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -135,24 +135,24 @@
       // 1.使用for in遍历params对象
       // for (var key in params) {
       //   if (str[str.length - 1] !== '?') {
-      //     str += '&' + key + '=' +
-      //       params[key]
+      //     str += `&${key}=${params[key]}`
       //   } else {
-      //     str += key + '=' +
-      //       params[key]
+      //     str += `${key}=${params[key]}`
       //   }
       // }
+      // return str
 
       // 2.使用Object.keys()方法间接遍历params对象
       Object.keys(params).forEach((item, index) => {
         if (index === 0) {
-          str += item + '=' + params[item]
+          url += `?${item}=${params[item]}`
         } else {
-          str += '&' + item + '=' + params[item]
+          url += `&${item}=${params[item]}`
         }
       })
+      return url
 
-      return str
+
     }
 
     console.log(url('http://123.com', {
