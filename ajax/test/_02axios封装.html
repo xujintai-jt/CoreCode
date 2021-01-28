@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-27 15:37:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-28 10:53:00
+ * @LastEditTime: 2021-01-28 11:48:51
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_02axios封装.html
 -->
@@ -42,9 +42,23 @@
           // readyState 0=>初始化 1=>载入 2=>载入完成 3=>解析 4=>完成
           if (xmlhttp.readyState !== 4) return
 
-          //成功
-          console.log(xmlhttp.status);
-          //失败
+          const {
+            status,
+            statusText,
+            response
+          } = xmlhttp
+          //2.1 发送请求成功 resolve状态
+          if (xmlhttp.status >= 200 && xmlhttp.status <= 299) {
+            resolve({
+              data: JSON.parse(response),
+              status,
+              statusText
+            })
+          }
+          // 2.2 发送请求失败 reject状态 
+          else {
+            reject(new Error('错误原因为' + status))
+          }
         }
 
         xmlhttp.open(method, url, true);
@@ -58,9 +72,6 @@
           xmlhttp.send(JSON.stringify(data)); //发送json格式的请求体参数(发送json格式请求体需要设置请求头)
         }
 
-        // 2.1 发送请求成功
-
-        // 2.2 发送请求失败
       })
     }
 
@@ -76,9 +87,13 @@
 
     axios({
       url: 'http://localhost:3000/posts',
-      params: {
-        id: 2
-      }
+      // params: {
+      //   id: 2
+      // }
+    }).then(response => {
+      console.log(response);
+    }).catch(error => {
+      alert(error);
     });
   </script>
 
