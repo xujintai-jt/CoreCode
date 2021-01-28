@@ -2,9 +2,9 @@
  * @Author: xujintai
  * @Date: 2021-01-26 11:18:31
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-26 15:31:00
+ * @LastEditTime: 2021-01-28 14:08:45
  * @Description: file content
- * @FilePath: \CoreCode\ajax\test\_restapi-test.html
+ * @FilePath: \CoreCode\ajax\test\_01restapi-test.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +63,7 @@
     function testPost() {
       instance.post('/posts', {
         author: 'XuJinTai',
-        title: 'coding...'
+        title: 'coding'
       }).then(Response => {
         console.log(Response);
       }).catch((error) => {
@@ -74,8 +74,8 @@
     // put请求
     function testPut() {
       instance.put('/posts/4', {
-        "title": "河东狮吼",
-        "author": "张柏芝"
+        "title2": "河东狮吼",
+        "author2": "张柏芝"
       }).then(Response => {
         console.log(Response);
       }).catch((error) => {
