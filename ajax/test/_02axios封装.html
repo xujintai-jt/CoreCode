@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-27 15:37:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-28 14:28:41
+ * @LastEditTime: 2021-01-28 14:33:02
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_02axios封装.html
 -->
@@ -102,28 +102,28 @@
 
 
     //put请求
-    // axios({
-    //   method: 'Put',
-    //   url: 'http://localhost:3000/posts/4',
-    //   data: {
-    //     "author": "张柏芝",
-    //     "title": "河东狮吼"
-    //   }
-    // }).then(response => {
-    //   console.log(response);
-    // }).catch(error => {
-    //   alert(error);
-    // });
-
-    //delete请求
     axios({
-      method: 'delete',
-      url: 'http://localhost:3000/posts/3',
+      method: 'Put',
+      url: 'http://localhost:3000/posts/6',
+      data: {
+        "author": "张柏芝",
+        "title": "我家有一只河东狮"
+      }
     }).then(response => {
       console.log(response);
     }).catch(error => {
       alert(error);
     });
+
+    //delete请求
+    // axios({
+    //   method: 'delete',
+    //   url: 'http://localhost:3000/posts/10',
+    // }).then(response => {
+    //   console.log(response);
+    // }).catch(error => {
+    //   alert(error);
+    // });
   </script>
 
 </body>
