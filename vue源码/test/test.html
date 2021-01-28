@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-27 18:43:18
+ * @LastEditTime: 2021-01-28 11:11:55
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -130,36 +130,38 @@
     //由于两个空对象不相等，所以它们被视为两个值。
 
     //定义函数:拼接params到url(使用for in循环或者Object.keys方法)
-    function url(url, params) {
-      // let str = url + '?'
-      // 1.使用for in遍历params对象
-      // for (var key in params) {
-      //   if (str[str.length - 1] !== '?') {
-      //     str += `&${key}=${params[key]}`
-      //   } else {
-      //     str += `${key}=${params[key]}`
-      //   }
-      // }
-      // return str
+    // function url(url, params) {
+    // let str = url + '?'
+    // 1.使用for in遍历params对象
+    // for (var key in params) {
+    //   if (str[str.length - 1] !== '?') {
+    //     str += `&${key}=${params[key]}`
+    //   } else {
+    //     str += `${key}=${params[key]}`
+    //   }
+    // }
+    // return str
 
-      // 2.使用Object.keys()方法间接遍历params对象
-      Object.keys(params).forEach((item, index) => {
-        if (index === 0) {
-          url += `?${item}=${params[item]}`
-        } else {
-          url += `&${item}=${params[item]}`
-        }
-      })
-      return url
+    // 2.使用Object.keys()方法间接遍历params对象
+    //   Object.keys(params).forEach((item, index) => {
+    //     if (index === 0) {
+    //       url += `?${item}=${params[item]}`
+    //     } else {
+    //       url += `&${item}=${params[item]}`
+    //     }
+    //   })
+    //   return url
 
 
-    }
+    // }
+    // console.log(url('http://123.com', {
+    //   name: 'xjt',
+    //   age: 22,
+    //   weight: '50KG'
+    // }));
 
-    console.log(url('http://123.com', {
-      name: 'xjt',
-      age: 22,
-      weight: '50KG'
-    }));
+    const x = new Error('qqq')
+    console.log(x);
   </script>
 
 </body>

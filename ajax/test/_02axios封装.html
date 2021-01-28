@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-27 15:37:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-27 18:45:30
+ * @LastEditTime: 2021-01-28 10:53:00
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_02axios封装.html
 -->
@@ -36,15 +36,27 @@
             url += `&${item}=${params[item]}`
           }
         })
+
+        //绑定状态改变的监听
+        xmlhttp.onreadystatechange = () => {
+          // readyState 0=>初始化 1=>载入 2=>载入完成 3=>解析 4=>完成
+          if (xmlhttp.readyState !== 4) return
+
+          //成功
+          console.log(xmlhttp.status);
+          //失败
+        }
+
         xmlhttp.open(method, url, true);
+
         //发送请求(判断请求方式)
         if (method === 'GET') {
+          //send方法是异步的：所以绑定状态监听函数可以放在send执行后
           xmlhttp.send();
         } else if (method === 'POST') {
           xmlhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8") //告诉服务器,请求体的格式是json
           xmlhttp.send(JSON.stringify(data)); //发送json格式的请求体参数(发送json格式请求体需要设置请求头)
         }
-
 
         // 2.1 发送请求成功
 
