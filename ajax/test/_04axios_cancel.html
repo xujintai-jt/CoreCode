@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-29 11:01:33
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-29 21:23:30
+ * @LastEditTime: 2021-01-29 21:31:42
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_04axios_cancel.html
 -->
@@ -39,24 +39,28 @@
       }).then(response => {
         //响应结果后将cancel设置null(不能调用)
         cancel = null;
-        console.log('products1的成功响应', response);
+        console.log('products1的成功响应', data, response.data);
       }).catch(error => {
         //响应结果后将cancel设置null(不能调用)
         cancel = null;
-        console.log('products1的失败响应', error);
+        console.log('products1的失败响应', error, error, error.message);
       })
     }
 
 
     function getRequest2() {
-      instance.get('/products2').then(response => {
+      instance.get('/products2', {
+        cancelToken: new axios.CancelToken(function executor(c) {
+          cancel = c;
+        })
+      }).then(response => {
         //响应结果后将cancel设置null(不能调用)
         cancel = null;
-        console.log('products2的成功响应', response);
+        console.log('products2的成功响应', data, response.data);
       }).catch(error => {
         //响应结果后将cancel设置null(不能调用)
         cancel = null;
-        console.log('products2的失败响应', error);
+        console.log('products2的失败响应', error, error.message);
       })
     }
 
