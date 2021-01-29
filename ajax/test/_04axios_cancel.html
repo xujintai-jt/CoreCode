@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-29 11:01:33
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-29 21:36:00
+ * @LastEditTime: 2021-01-29 21:42:42
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_04axios_cancel.html
 -->
@@ -31,6 +31,11 @@
     let cancel
 
     function getRequest1() {
+      //cancelRequest() 请求前取消未完成的请求
+      if (typeof cancel === 'function') {
+        cancel('成功取消请求')
+      }
+
       instance.get('/products1', {
         //通过将执行器函数传递到构造函数来创建取消令牌：CancelToken
         cancelToken: new axios.CancelToken(function executor(c) {
@@ -49,7 +54,11 @@
 
 
     function getRequest2() {
-      cancelRequest()
+      //cancelRequest() 请求前取消未完成的请求
+      if (typeof cancel === 'function') {
+        cancel('成功取消请求')
+      }
+
       instance.get('/products2', {
         cancelToken: new axios.CancelToken(function executor(c) {
           cancel = c;
@@ -65,8 +74,8 @@
       })
     }
 
+    //取消axios请求(取消axios请求返回的错误对象(虽然也有message)但不是Error类型,Error类型拥有stack)
     function cancelRequest() {
-      //取消axios请求(取消axios请求返回的错误对象(虽然也有message)但不是Error类型,Error类型拥有stack)
       //保证cancel赋值以后才能调用
       if (typeof cancel === 'function') {
         cancel('成功取消请求')
