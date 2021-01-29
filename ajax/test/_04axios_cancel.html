@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-29 11:01:33
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-29 20:57:52
+ * @LastEditTime: 2021-01-29 21:04:27
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_04axios_cancel.html
 -->
@@ -28,9 +28,15 @@
       timeout: 3000,
     });
 
+    let cancel
 
     function getRequest1() {
-      instance.get('/products1').then(response => {
+      instance.get('/products1', {
+        //通过将执行器函数传递到构造函数来创建取消令牌：CancelToken
+        cancelToken: new axios.CancelToken(function executor(c) {
+          cancel = c;
+        })
+      }).then(response => {
         console.log('products1的成功响应', response);
       }).catch(error => {
         console.log('products1的失败响应', error);
