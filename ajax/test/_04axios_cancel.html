@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-29 11:01:33
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-29 11:01:34
+ * @LastEditTime: 2021-01-29 20:50:26
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_04axios_cancel.html
 -->
@@ -17,6 +17,35 @@
 
 <body>
 
+  <button onclcik="getRequest1()">发送请求1</button>
+  <button onclcik="getRequest2()">发送请求2</button>
+  <button onclcik="cancelRequest()">取消请求</button>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const instance = axios.create({
+      baseURL: 'https:127.0.0.1:4000',
+      timeout: 1000,
+    });
+
+
+    function getRequest1() {
+      instance.get('/products1').then(response => {
+        console.log('products1的成功响应', response);
+      }).catch(error => {
+        console.log('products1的失败响应', error);
+      })
+    }
+
+
+    function getRequest2() {
+      instance.get('/products2').then(response => {
+        console.log('products2的成功响应', response);
+      }).catch(error => {
+        console.log('products2的失败响应', error);
+      })
+    }
+  </script>
 </body>
 
 </html>
