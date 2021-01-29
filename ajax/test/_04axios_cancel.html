@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-29 11:01:33
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-29 21:04:27
+ * @LastEditTime: 2021-01-29 21:23:30
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_04axios_cancel.html
 -->
@@ -37,8 +37,12 @@
           cancel = c;
         })
       }).then(response => {
+        //响应结果后将cancel设置null(不能调用)
+        cancel = null;
         console.log('products1的成功响应', response);
       }).catch(error => {
+        //响应结果后将cancel设置null(不能调用)
+        cancel = null;
         console.log('products1的失败响应', error);
       })
     }
@@ -46,10 +50,22 @@
 
     function getRequest2() {
       instance.get('/products2').then(response => {
+        //响应结果后将cancel设置null(不能调用)
+        cancel = null;
         console.log('products2的成功响应', response);
       }).catch(error => {
+        //响应结果后将cancel设置null(不能调用)
+        cancel = null;
         console.log('products2的失败响应', error);
       })
+    }
+
+    function cancelRequest() {
+      //取消axios请求(取消axios请求返回的错误对象(虽然也有message)但不是Error类型,Error类型拥有stack)
+      //保证cancel赋值以后才能调用
+      if (typeof cancel === 'function') {
+        cancel('成功取消请求')
+      }
     }
   </script>
 </body>
