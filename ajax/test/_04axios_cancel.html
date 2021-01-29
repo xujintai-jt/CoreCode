@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-29 11:01:33
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-29 21:31:42
+ * @LastEditTime: 2021-01-29 21:36:00
  * @Description: file content
  * @FilePath: \CoreCode\ajax\test\_04axios_cancel.html
 -->
@@ -49,6 +49,7 @@
 
 
     function getRequest2() {
+      cancelRequest()
       instance.get('/products2', {
         cancelToken: new axios.CancelToken(function executor(c) {
           cancel = c;
@@ -56,7 +57,7 @@
       }).then(response => {
         //响应结果后将cancel设置null(不能调用)
         cancel = null;
-        console.log('products2的成功响应', data, response.data);
+        console.log('products2的成功响应', response, response.data);
       }).catch(error => {
         //响应结果后将cancel设置null(不能调用)
         cancel = null;
