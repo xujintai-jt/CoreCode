@@ -1,0 +1,97 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-01-26 11:18:31
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-28 17:20:53
+ * @Description: file content
+ * @FilePath: \CoreCode\ajax\test\_03axios_base.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="testGet()">get</button>
+  <button onclick="testPost()">post</button>
+  <button onclick="testPut()">put</button>
+  <button onclick="testDelete()">delete</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const instance = axios.create({
+      baseURL: 'http://localhost:3000/',
+      timeout: 1000,
+    });
+
+    // get请求：query
+    // function testGet() {
+    //   instance.get('/posts?id=1').then(Response => {
+    //     console.log(Response);
+    //   }).catch((error) => {
+    //     console.log(error);
+    //   })
+    // }
+
+    // get请求： params(1)
+    function testGet() {
+      instance.get('/posts', {
+        params: {
+          id: 1
+        }
+      }).then(Response => {
+        console.log(Response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+
+    // get请求： params(2)
+    // function testGet() {
+    //   instance.get('/posts/1').then(Response => {
+    //     console.log(Response);
+    //   }).catch((error) => {
+    //     console.log(error);
+    //   })
+    // }
+
+
+    // post请求
+    function testPost() {
+      instance.post('/posts', {
+        author: 'XuJinTai',
+        title: 'coding'
+      }).then(Response => {
+        console.log(Response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+
+    // put请求
+    function testPut() {
+      instance.put('/posts/4', {
+        "title2": "河东狮吼",
+        "author2": "张柏芝"
+      }).then(Response => {
+        console.log(Response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+
+    // delete请求
+    function testDelete() {
+      instance.delete('/posts/5').then(Response => {
+        console.log(Response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+  </script>
+</body>
+
+</html>
