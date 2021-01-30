@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-12 21:40:06
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-28 11:11:55
+ * @LastEditTime: 2021-01-30 17:00:22
  * @Description: file content
  * @FilePath: \CoreCode\vue源码\test\test.html
 -->
@@ -16,6 +16,17 @@
 </head>
 
 <body>
+  <button onclick="print()">点击</button>
+
+  <script>
+    function print() {
+      console.log(1);
+    }
+
+    // for (var i = 1; i <= 1000; i++) {
+    //   console.log(2);
+    // }
+  </script>
   <!-- <div id="app">
     <div>FirstName:{{FirstName}}</div>
     <div>FullName:{{FullName}}</div>
@@ -160,8 +171,8 @@
     //   weight: '50KG'
     // }));
 
-    const x = new Error('qqq')
-    console.log(x);
+    // const x = new Error('qqq')
+    // console.log(x);
   </script>
 
 </body>
