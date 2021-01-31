@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-31 21:03:57
+ * @LastEditTime: 2021-01-31 21:07:55
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */

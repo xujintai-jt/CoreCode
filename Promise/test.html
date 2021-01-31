@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-10 22:10:16
+ * @LastEditTime: 2021-01-31 21:10:50
  * @Description: file content
  * @FilePath: \CoreCode\Promise\test.html
 -->
@@ -18,25 +18,20 @@
 <body>
   <!-- <script src="./Promise.js"></script> -->
   <!-- <script src="./Promise1.js"></script> -->
-  <script src="Promise_test.js"></script>
+  <!-- <script src="Promise_test.js"></script> -->
+  <script src="./Promise_2021.1.31.js"></script>
   <script>
     const p1 = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('成功')
-      }, 0)
+      // throw '错误'
+      reject('错误')
+      resolve('hello then')
+      console.log('hahaha');
     })
 
-    p1.then(value => {
-      console.log('OnResolved1', value);
-      // return new Promsie((resolve, reject) => {})
-      // throw new Error('error')
-
-    }, reason => {
-      console.log('OnRejected1', reason);
-    }).then(value => {
-      console.log('OnResolved1', value);
-    }, reason => {
-      console.log('OnRejected1', reason);
+    p1.then((value) => {
+      console.log(`成功值：${value}`);
+    }, (reason) => {
+      console.log(`失败值：${reason}`);
     })
   </script>
 
