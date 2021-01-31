@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-31 22:22:38
+ * @LastEditTime: 2021-01-31 22:25:00
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -30,7 +30,7 @@
       if (self.storyFn.length > 0) {
         setTimeout(() => {
           self.storyFn[0].onResolved(self.result)
-        },0)
+        })
       }
     }
 
@@ -42,7 +42,7 @@
       if (self.storyFn.length > 0) {
         setTimeout(() => {
           self.storyFn[0].onRejected(self.result)
-        },0)
+        })
       }
     }
 
