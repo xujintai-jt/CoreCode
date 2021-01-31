@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-31 21:10:50
+ * @LastEditTime: 2021-01-31 22:10:51
  * @Description: file content
  * @FilePath: \CoreCode\Promise\test.html
 -->
@@ -16,15 +16,13 @@
 </head>
 
 <body>
-  <!-- <script src="./Promise.js"></script> -->
-  <!-- <script src="./Promise1.js"></script> -->
-  <!-- <script src="Promise_test.js"></script> -->
   <script src="./Promise_2021.1.31.js"></script>
   <script>
-    const p1 = new Promise((resolve, reject) => {
+    const p1 = new MyPromise((resolve, reject) => {
       // throw '错误'
-      reject('错误')
-      resolve('hello then')
+      reject('promsie错误了')
+      resolve('promsie成功了')
+
       console.log('hahaha');
     })
 
