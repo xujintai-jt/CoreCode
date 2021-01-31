@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-31 22:12:19
+ * @LastEditTime: 2021-01-31 22:22:38
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -29,7 +29,7 @@
       self.result = value
       if (self.storyFn.length > 0) {
         setTimeout(() => {
-          
+          self.storyFn[0].onResolved(self.result)
         },0)
       }
     }
@@ -41,7 +41,7 @@
       self.result = reason
       if (self.storyFn.length > 0) {
         setTimeout(() => {
-          
+          self.storyFn[0].onRejected(self.result)
         },0)
       }
     }
@@ -55,17 +55,18 @@
     }
   }
 
-  MyPromise.prototype.then = function (resolved,rejected) {
+  MyPromise.prototype.then = function (onResolved,onRejected) {
     const self = this
-    console.log(self);
     if (self.status === RESOLVED) {
       setTimeout(() => {
-        resolved(self.result)
+        onResolved(self.result)
     },0)
     } else if(self.status === REJECTED) {
       setTimeout(() => {
-        rejected(self.result)
+        onRejected(self.result)
     },0)
+    } else {
+      self.storyFn.push({onResolved,onRejected})
     }
   }
   
