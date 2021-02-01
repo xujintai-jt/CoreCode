@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 12:06:48
+ * @LastEditTime: 2021-02-01 12:26:01
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -66,21 +66,12 @@
             //then方法的返回结果为Promise
             if (result instanceof MyPromise) {
             //根据then指定回调函数返回的promise的执行结果来决定then返回的promise的状态
-              // result.then((value) => {
-              //   resolve(value)
-              // },(reason) => {
-              //   reject(reason)
-              // })
-              result.then(resolve,reject)
-              } 
-        
-        
-           
+               result.then(resolve,reject)
+               } 
             //then方法的返回结果为非Promise
             else {
-              
+              resolve(result)
             }
-            resolve(result)
           } catch (error) {
             reject(error)
           }

@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-31 22:18:40
+ * @LastEditTime: 2021-02-01 12:21:17
  * @Description: file content
  * @FilePath: \CoreCode\Promise\test.html
 -->
@@ -21,9 +21,7 @@
     const p1 = new MyPromise((resolve, reject) => {
       // throw '错误'
       // reject('promsie错误了')
-      setTimeout(() => {
-        resolve('promsie成功了')
-      }, 1000)
+      resolve('promsie成功了')
       console.log('hahaha');
     })
 
