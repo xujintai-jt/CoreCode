@@ -2,14 +2,19 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 13:30:36
+ * @LastEditTime: 2021-02-01 17:33:58
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
 
 // new Promise((resolve, reject) => {
-  // resolve()
+//   resolve()
 // })
+//   .then(resolve => {
+// })
+//   .catch(resolve => {
+// },reject=>{})
+
 (function(window){
   const PENDING = 'pending'
   const RESOLVED = 'resolved'
@@ -56,6 +61,12 @@
   }
 
   MyPromise.prototype.then = function (onResolved, onRejected) {
+    if (typeof onRejected !== "function") {
+      onRejected = function (reason) {
+        throw reason
+      }
+    }
+    
     return new MyPromise((resolve, reject) => {
       const self = this
       function handle(callback) {
@@ -97,7 +108,7 @@
   }
   
   MyPromise.prototype.catch=function (onResolved,onRejected) {
-    
+  return  this.then(undefined,onRejected)
   }
   window.MyPromise=MyPromise
 })(window)

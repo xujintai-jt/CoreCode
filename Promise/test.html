@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 13:14:58
+ * @LastEditTime: 2021-02-01 17:24:42
  * @Description: file content
  * @FilePath: \CoreCode\Promise\test.html
 -->
@@ -18,34 +18,43 @@
 <body>
   <script src="./Promise_2021.1.31.js"></script>
   <script>
-    const p1 = new MyPromise((resolve, reject) => {
-      // throw '错误'
-      // reject('promsie错误了')
-      setTimeout(() => {
-        resolve('promsie成功了')
-      }, 500)
-    })
+    // const p1 = new MyPromise((resolve, reject) => {
+    //   // throw '错误'
+    //   // reject('promsie错误了')
+    //   setTimeout(() => {
+    //     resolve('promsie成功了')
+    //   }, 500)
+    // })
 
-    const p2 = p1.then((value) => {
-      console.log(`成功值：${value}`);
-      // throw Error('错误')
-      return new MyPromise((resolve, reject) => {
-        reject('222')
-        resolve('999')
-      })
-    }, (reason) => {
-      console.log(`失败值：${reason}`);
-      return new MyPromise((resolve, reject) => {
-        reject('888')
-        resolve('666')
-      })
-    })
-    console.log(p2);
+    // const p2 = p1.then((value) => {
+    //   console.log(`成功值：${value}`);
+    //   // throw Error('错误')
+    //   return new MyPromise((resolve, reject) => {
+    //     reject('222')
+    //     resolve('999')
+    //   })
+    // }, (reason) => {
+    //   console.log(`失败值：${reason}`);
+    //   return new MyPromise((resolve, reject) => {
+    //     reject('888')
+    //     resolve('666')
+    //   })
+    // })
+    // console.log(p2);
 
-    p2.then(value => {
-      console.log(`成功${value}`);
-    }, error => {
-      console.log(`失败${error}`);
+    // p2.then(value => {
+    //   console.log(`成功${value}`);
+    // }, error => {
+    //   console.log(`失败${error}`);
+    // })
+
+    const p1 = new Promise((resolve, reject) => {
+      // reject('111')
+      resolve('hahaha')
+    }).catch(resolve => {
+      console.log(`resolve:${resolve}`);
+    }).then(resolve => {
+      console.log(`resolve:${resolve}`);
     })
   </script>
 
