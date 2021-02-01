@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 13:08:02
+ * @LastEditTime: 2021-02-01 13:14:58
  * @Description: file content
  * @FilePath: \CoreCode\Promise\test.html
 -->
@@ -21,14 +21,16 @@
     const p1 = new MyPromise((resolve, reject) => {
       // throw '错误'
       // reject('promsie错误了')
-      resolve('promsie成功了')
+      setTimeout(() => {
+        resolve('promsie成功了')
+      }, 500)
     })
 
     const p2 = p1.then((value) => {
       console.log(`成功值：${value}`);
       // throw Error('错误')
       return new MyPromise((resolve, reject) => {
-        // reject('222')
+        reject('222')
         resolve('999')
       })
     }, (reason) => {
@@ -41,9 +43,9 @@
     console.log(p2);
 
     p2.then(value => {
-      console.log(`qqq${value}`);
+      console.log(`成功${value}`);
     }, error => {
-      console.log(`zzz${error}`);
+      console.log(`失败${error}`);
     })
   </script>
 

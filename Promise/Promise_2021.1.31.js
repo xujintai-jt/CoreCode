@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 13:06:29
+ * @LastEditTime: 2021-02-01 13:30:36
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -18,7 +18,7 @@
   function MyPromise(excutor) {
     const self= this
     this.status = PENDING
-    this.storyFn = []
+    this.StoreCallbacks = []
     this.result = null
     
     function resolve(value) {
@@ -27,9 +27,9 @@
       console.log('resolve函数');
       self.status = RESOLVED
       self.result = value
-      if (self.storyFn.length > 0) {
+      if (self.StoreCallbacks.length > 0) {
         setTimeout(() => {
-          self.storyFn[0].onResolved(self.result)
+          self.StoreCallbacks[0].Fn1(self.result)
         })
       }
     }
@@ -39,9 +39,9 @@
       console.log('reject函数');
       self.status = REJECTED
       self.result = reason
-      if (self.storyFn.length > 0) {
+      if (self.StoreCallbacks.length > 0) {
         setTimeout(() => {
-          self.storyFn[0].onRejected(self.result)
+          self.StoreCallbacks[0].Fn2(self.result)
         })
       }
     }
@@ -58,47 +58,46 @@
   MyPromise.prototype.then = function (onResolved, onRejected) {
     return new MyPromise((resolve, reject) => {
       const self = this
+      function handle(callback) {
+          try {
+            //result为then方法指定的回调函数的返回结果
+            const result = callback(self.result)
+            //then方法的返回结果为Promise
+            if (result instanceof MyPromise) {
+            //根据then指定回调函数返回的promise的执行结果来决定then返回的promise的状态
+               result.then(resolve,reject)
+               } 
+            //then方法的返回结果为非Promise
+            else {
+              resolve(result)
+            }
+          } catch (error) {
+            reject(error)
+          }
+      }
       if (self.status === RESOLVED) {
         setTimeout(() => {
-          try {
-            //result为then方法指定的回调函数的返回结果
-            const result = onResolved(self.result)
-            //then方法的返回结果为Promise
-            if (result instanceof MyPromise) {
-            //根据then指定回调函数返回的promise的执行结果来决定then返回的promise的状态
-               result.then(resolve,reject)
-               } 
-            //then方法的返回结果为非Promise
-            else {
-              resolve(result)
-            }
-          } catch (error) {
-            reject(error)
-          }
-      },0)
+          handle(onResolved)
+        })
       } else if(self.status === REJECTED) {
         setTimeout(() => {
-          try {
-            //result为then方法指定的回调函数的返回结果
-            const result = onRejected(self.result)
-            //then方法的返回结果为Promise
-            if (result instanceof MyPromise) {
-            //根据then指定回调函数返回的promise的执行结果来决定then返回的promise的状态
-               result.then(resolve,reject)
-               } 
-            //then方法的返回结果为非Promise
-            else {
-              resolve(result)
-            }
-          } catch (error) {
-            reject(error)
-          }
-      },0)
+          handle(onRejected)
+        })
       } else {
-        self.storyFn.push({onResolved,onRejected})
+        self.StoreCallbacks.push({
+          Fn1(value) {
+            handle(onResolved);
+          },
+          Fn2(reason) {
+            handle(onRejected);
+          },
+        })
       }
     })
   }
   
+  MyPromise.prototype.catch=function (onResolved,onRejected) {
+    
+  }
   window.MyPromise=MyPromise
 })(window)
