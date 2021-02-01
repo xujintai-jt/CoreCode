@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-31 22:25:00
+ * @LastEditTime: 2021-02-01 12:06:48
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -55,19 +55,49 @@
     }
   }
 
-  MyPromise.prototype.then = function (onResolved,onRejected) {
-    const self = this
-    if (self.status === RESOLVED) {
-      setTimeout(() => {
-        onResolved(self.result)
-    },0)
-    } else if(self.status === REJECTED) {
-      setTimeout(() => {
-        onRejected(self.result)
-    },0)
-    } else {
-      self.storyFn.push({onResolved,onRejected})
-    }
+  MyPromise.prototype.then = function (onResolved, onRejected) {
+    return new MyPromise((resolve, reject) => {
+      const self = this
+      if (self.status === RESOLVED) {
+        setTimeout(() => {
+          try {
+            //then方法的返回结果
+            const result = onResolved(self.result)
+            //then方法的返回结果为Promise
+            if (result instanceof MyPromise) {
+            //根据then指定回调函数返回的promise的执行结果来决定then返回的promise的状态
+              // result.then((value) => {
+              //   resolve(value)
+              // },(reason) => {
+              //   reject(reason)
+              // })
+              result.then(resolve,reject)
+              } 
+        
+        
+           
+            //then方法的返回结果为非Promise
+            else {
+              
+            }
+            resolve(result)
+          } catch (error) {
+            reject(error)
+          }
+      },0)
+      } else if(self.status === REJECTED) {
+        setTimeout(() => {
+          try {
+            const result = onResolved(self.result)
+            resolve(result)
+          } catch (error) {
+            reject(error)
+          }
+      },0)
+      } else {
+        self.storyFn.push({onResolved,onRejected})
+      }
+    })
   }
   
   window.MyPromise=MyPromise
