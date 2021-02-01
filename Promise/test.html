@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 12:32:24
+ * @LastEditTime: 2021-02-01 13:08:02
  * @Description: file content
  * @FilePath: \CoreCode\Promise\test.html
 -->
@@ -22,18 +22,28 @@
       // throw '错误'
       // reject('promsie错误了')
       resolve('promsie成功了')
-      console.log('hahaha');
     })
 
-    p1.then((value) => {
+    const p2 = p1.then((value) => {
       console.log(`成功值：${value}`);
-      throw Error('错误')
+      // throw Error('错误')
+      return new MyPromise((resolve, reject) => {
+        // reject('222')
+        resolve('999')
+      })
     }, (reason) => {
       console.log(`失败值：${reason}`);
-    }).then((value) => {
-      console.log(`111${value}`);
-    }, (error) => {
-      console.log(`111${error}`);
+      return new MyPromise((resolve, reject) => {
+        reject('888')
+        resolve('666')
+      })
+    })
+    console.log(p2);
+
+    p2.then(value => {
+      console.log(`qqq${value}`);
+    }, error => {
+      console.log(`zzz${error}`);
     })
   </script>
 

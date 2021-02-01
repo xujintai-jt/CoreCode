@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 12:26:01
+ * @LastEditTime: 2021-02-01 13:06:29
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -61,7 +61,7 @@
       if (self.status === RESOLVED) {
         setTimeout(() => {
           try {
-            //then方法的返回结果
+            //result为then方法指定的回调函数的返回结果
             const result = onResolved(self.result)
             //then方法的返回结果为Promise
             if (result instanceof MyPromise) {
@@ -79,8 +79,17 @@
       } else if(self.status === REJECTED) {
         setTimeout(() => {
           try {
-            const result = onResolved(self.result)
-            resolve(result)
+            //result为then方法指定的回调函数的返回结果
+            const result = onRejected(self.result)
+            //then方法的返回结果为Promise
+            if (result instanceof MyPromise) {
+            //根据then指定回调函数返回的promise的执行结果来决定then返回的promise的状态
+               result.then(resolve,reject)
+               } 
+            //then方法的返回结果为非Promise
+            else {
+              resolve(result)
+            }
           } catch (error) {
             reject(error)
           }
