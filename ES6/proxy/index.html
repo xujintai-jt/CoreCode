@@ -1,0 +1,51 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-02 18:26:36
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-02 19:23:08
+ * @Description: file content
+ * @FilePath: \CoreCode\ES6\proxy\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var person = {
+      name: "张三"
+    };
+
+    var temp
+
+    //代理了person的proxy实例对象
+    var proxy = new Proxy(person, {
+      get(target, propKey) {
+        // target为代理对象person(target===person)
+        return Reflect.get(target, propKey) + 'hahaha'
+      },
+      set(target, propKey, newValue) {
+        console.log('set函数执行');
+        Reflect.set(target, propKey, newValue)
+      }
+    });
+    console.log(person.name); //张三
+    //操作target对象(目标对象)不会调用拦截函数
+    console.log(proxy.name); //张三hahaha
+    //操作proxy实例对象会调用拦截函数
+    person.name = '李四'
+    console.log(person.name); //李四
+    console.log(proxy.name); //李四hahaha
+    proxy.name = '王五' //'set函数执行'
+    console.log(person.name); //王五
+    console.log(proxy.name); //王五hahaha
+  </script>
+
+</body>
+
+</html>
