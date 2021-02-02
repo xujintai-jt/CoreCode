@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-09 20:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-02 16:52:11
+ * @LastEditTime: 2021-02-02 17:09:54
  * @Description: file content
  * @FilePath: \CoreCode\ES6\Promise\test.html
 -->
@@ -49,11 +49,9 @@
     // })
 
 
-    try {
-      let x = y + 1
-    } catch (error) {
-      console.log(error)
-    }
+    new MyPromise((resolve, reject) => {
+      console.log(x + 1);
+    })
     console.log(1);
   </script>
 

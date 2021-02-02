@@ -2,9 +2,9 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 17:49:18
+ * @LastEditTime: 2021-02-02 17:11:04
  * @Description: file content
- * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
+ * @FilePath: \CoreCode\ES6\Promise\Promise_2021.1.31.js
  */
 
 // new Promise((resolve, reject) => {
@@ -28,8 +28,6 @@
     
     function resolve(value) {
       if (self.status !== PENDING)  return
-    
-      console.log('resolve函数');
       self.status = RESOLVED
       self.result = value
       if (self.StoreCallbacks.length > 0) {
@@ -41,7 +39,6 @@
 
     function reject(reason) {
       if (self.status !== PENDING)  return
-      console.log('reject函数');
       self.status = REJECTED
       self.result = reason
       if (self.StoreCallbacks.length > 0) {
@@ -55,7 +52,7 @@
       excutor(resolve,reject)
     }
     catch (error) {
-      console.log(error);
+      console.log('执行器函数捕获错误：',error);
       reject(error)
     }
   }
