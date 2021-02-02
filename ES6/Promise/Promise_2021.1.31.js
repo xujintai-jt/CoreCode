@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-31 20:45:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-01 17:33:58
+ * @LastEditTime: 2021-02-01 17:49:18
  * @Description: file content
  * @FilePath: \CoreCode\Promise\Promise_2021.1.31.js
  */
@@ -61,6 +61,23 @@
   }
 
   MyPromise.prototype.then = function (onResolved, onRejected) {
+
+  // //向后传递成功的value
+  // onRejected =
+  // typeof onResolved === 'function' ? onResolved : (value) => value;
+  
+  // //如果未指失败的回调函数,则默认指定失败回调函数（实现异常穿透的关键点）
+  // onRejected =
+  //   typeof onRejected === 'function'
+  //     ? onRejected
+  //     : (reason) => {
+  //       throw reason;
+  //     };
+     
+    if (typeof onResolved !== "function") {
+     onResolved = value=>value
+    }
+  
     if (typeof onRejected !== "function") {
       onRejected = function (reason) {
         throw reason
@@ -107,6 +124,8 @@
     })
   }
   
+  //catch是特殊的then方法,当成功状态的promise调用catch方法时,catch不进行后处理而是交给之后的then方法处理。
+  //(相当于catch指定了处理成功状态promise的回调函数将成功状态promise继续下传)
   MyPromise.prototype.catch=function (onResolved,onRejected) {
   return  this.then(undefined,onRejected)
   }
