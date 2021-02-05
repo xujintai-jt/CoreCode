@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-05 12:05:22
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-05 14:25:45
+ * @LastEditTime: 2021-02-05 14:44:50
  * @Description: file content
  * @FilePath: \CoreCode\css\margin合并\index.html
 -->
@@ -19,43 +19,24 @@
       margin: 0;
     }
 
-    .bother1 {
-      height: 200px;
-      width: 200px;
+    .block {
       margin-bottom: 70px;
+      height: 70px;
+      width: 70px;
       background: pink;
     }
 
-    .bother2 {
-      height: 200px;
-      width: 200px;
-      margin-top: 70px;
-      margin-bottom: 70px;
-      background-color: gray;
-    }
-
-    .bother3 {
+    .inline-block {
       margin-top: 70px;
       background-color: green;
-    }
-
-    .bother4 {
-      margin-top: 70px;
-      border: none;
-      background-color: yellow;
     }
   </style>
 </head>
 
 <body>
-  <!-- margin上下距离合并发生在块级盒子间，内联元素不能设置上下margin -->
-  <div class="bother1">块级元素</div>
-  <div class="bother2">块级元素</div>
-  <!-- 内联元素不能设置上下margin -->
-  <!-- <span class="bother3">hhh</span> -->
-  <!-- 内联块元素不与块级元素发生上下合并 -->
-  <!-- <span class="bother3">hhh</span> -->
-  <input type="text" class="bother4" value="内联块元素">
+  <div class="block">块级元素</div>
+  <!-- 给行内块元素设置上下margin值，不会和相邻元素发生margin值上下合并。 -->
+  <input class="inline-block" value="内联块元素" />
 </body>
 
 </html>
