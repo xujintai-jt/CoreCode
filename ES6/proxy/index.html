@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-02 18:26:36
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-02 19:23:08
+ * @LastEditTime: 2021-02-02 19:29:53
  * @Description: file content
  * @FilePath: \CoreCode\ES6\proxy\index.html
 -->
@@ -34,6 +34,7 @@
         Reflect.set(target, propKey, newValue)
       }
     });
+
     console.log(person.name); //张三
     //操作target对象(目标对象)不会调用拦截函数
     console.log(proxy.name); //张三hahaha

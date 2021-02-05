@@ -1,0 +1,38 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-05 10:58:01
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-05 11:06:53
+ * @Description: file content
+ * @FilePath: \CoreCode\css\BFC\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* BFC 块级格式上下文 */
+    .container {
+      overflow: hidden;
+    }
+
+    .container img {
+      float: left;
+      height: 300px;
+      width: 270px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="../img/猪猪3.JPG" alt="">
+    <p>这是一只猪猪</p>
+  </div>
+
+</body>
+
+</html>
