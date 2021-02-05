@@ -1,0 +1,61 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-05 12:05:22
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-05 14:25:45
+ * @Description: file content
+ * @FilePath: \CoreCode\css\margin合并\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .bother1 {
+      height: 200px;
+      width: 200px;
+      margin-bottom: 70px;
+      background: pink;
+    }
+
+    .bother2 {
+      height: 200px;
+      width: 200px;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      background-color: gray;
+    }
+
+    .bother3 {
+      margin-top: 70px;
+      background-color: green;
+    }
+
+    .bother4 {
+      margin-top: 70px;
+      border: none;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- margin上下距离合并发生在块级盒子间，内联元素不能设置上下margin -->
+  <div class="bother1">块级元素</div>
+  <div class="bother2">块级元素</div>
+  <!-- 内联元素不能设置上下margin -->
+  <!-- <span class="bother3">hhh</span> -->
+  <!-- 内联块元素不与块级元素发生上下合并 -->
+  <!-- <span class="bother3">hhh</span> -->
+  <input type="text" class="bother4" value="内联块元素">
+</body>
+
+</html>
