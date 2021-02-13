@@ -2,9 +2,9 @@
  * @Author: xujintai
  * @Date: 2020-12-08 18:10:13
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-08 18:40:07
+ * @LastEditTime: 2021-02-13 23:37:33
  * @Description: file content
- * @FilePath: \CoreCode\test.html
+ * @FilePath: \CoreCode\test\test.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +17,33 @@
 
 <body>
   <script>
-    for (var i = 0; i < 3; ++i) {
-      console.log(i)
+    function usingCallback(fn) {
+      //判断传入的实参是否为函数
+      if (typeof fn !== 'function') {
+        alert('传入实参类型错误')
+        return
+      }
+      //实参为函数,则调用
+      fn()
     }
-    var obj = {}
-    console.log(typeof Object.prototype)
+
+
+    function fn1() {
+      console.log('函数fn1被调用了');
+    }
+
+    function fn2() {
+      console.log('函数fn2被调用了');
+    }
+    //1.
+    //传入回调函数fn1
+    usingCallback(fn1)
+    //传入回调函数fn2
+    usingCallback(fn2)
+
+    //2.
+    //传入非函数实参
+    usingCallback(1)
   </script>
 
 
